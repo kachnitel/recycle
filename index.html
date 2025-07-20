@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squamish Recycling Locations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #search {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    tr.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Squamish Recycling Locations</h1>
+  <input type="text" id="search" placeholder="Search materials or locations..." />
+  <table>
+    <thead>
+      <tr>
+        <th>Material</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody id="recycle-table">
+      <tr>
+        <td>Bicycle tires</td>
+        <td>Tantalus Bike Shop</td>
+      </tr>
+      <tr>
+        <td>Soft plastic</td>
+        <td>GFL at Squamish Rebuild It Center / Shady Tree</td>
+      </tr>
+      <tr>
+        <td>Styrofoam</td>
+        <td>GFL Transfer Station</td>
+      </tr>
+      <tr>
+        <td>Used motor oil</td>
+        <td>GFL at Queen’s St. Transfer Station (verify)</td>
+      </tr>
+      <tr>
+        <td>Car tires</td>
+        <td>GFL Transfer Station</td>
+      </tr>
+      <tr>
+        <td>Car batteries</td>
+        <td>GFL Transfer Station</td>
+      </tr>
+      <tr>
+        <td>Household batteries</td>
+        <td>Recycle BC Depot (Bottle &amp; Return-It)</td>
+      </tr>
+      <tr>
+        <td>Electronics (e-waste)</td>
+        <td>GFL Transfer Station (e-waste depot)</td>
+      </tr>
+      <tr>
+        <td>Paint (latex &amp; oil)</td>
+        <td>Hazardous Waste Depot at GFL Transfer Station</td>
+      </tr>
+      <tr>
+        <td>Fluorescent bulbs &amp; tubes</td>
+        <td>Hazardous Waste Depot at GFL Transfer Station</td>
+      </tr>
+      <tr>
+        <td>Household textiles (clothing, linens)</td>
+        <td>Value Village / Donation Bins</td>
+      </tr>
+      <tr>
+        <td>Mattresses &amp; furniture</td>
+        <td>GFL Transfer Station (bulky waste drop-off)</td>
+      </tr>
+      <tr>
+        <td>Propane tanks</td>
+        <td>GFL Transfer Station (hazardous drop-off)</td>
+      </tr>
+      <tr>
+        <td>Oil filters</td>
+        <td>GFL Transfer Station (oily waste area)</td>
+      </tr>
+      <tr>
+        <td>Antifreeze</td>
+        <td>GFL Transfer Station (oily waste area)</td>
+      </tr>
+      <!-- Add more items here -->
+    </tbody>
+  </table>
+
+  <script>
+    const searchInput = document.getElementById('search');
+    const tableRows = document.querySelectorAll('#recycle-table tr');
+
+    searchInput.addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      tableRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.classList.toggle('hidden', !text.includes(filter));
+      });
+    });
+  </script>
+</body>
+
+</html>
